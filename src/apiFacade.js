@@ -1,4 +1,4 @@
-const URL = "http://localhost:8080/recap";
+const URL = "http://localhost:8080/ca2";
 
 function handleHttpErrors(res) {
  if (!res.ok) {
