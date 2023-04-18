@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import facade from "./apiFacade";
 import LogIn from "./components/LoginForm";
 import LoggedIn from "./components/LoggedIn";
-import {NavLink} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
 
 
 function App() {
@@ -22,43 +22,62 @@ function App() {
         });
     }
 
+    const Header = () => {
+        return (
+            <div>
+                <ul className="header">
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/about">About</NavLink></li>
+                    <li><NavLink to="/logout">Logout</NavLink></li>
+                </ul>
+                <br/>
+                {!loggedIn ? (<LogIn login={login}/>) :
+                    (<div>
+                        <LoggedIn user={user}/>
+                    </div>)}
+            </div>
+        )
+    }
+
     return (
         <div>
-            <ul className="header">
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/logout">Logout</NavLink></li>
-            </ul>
-            <br/>
-            {!loggedIn ? (<LogIn login={login}/>) :
-                (<div>
-                    <LoggedIn user={user}/>
-                    <button onClick={logout}>Logout</button>
-                </div>)}
+            <Header/>
+            <Routes>
+                <Route exact path="/" element={<Home/>}></Route>
+                <Route path="/about" element={<About/>}></Route>
+                <Route path="/logout" element={<Logout/>}>
+
+                </Route>
+            </Routes>
         </div>
     )
 }
 
-const home = () => {
+const Home = () => {
     return (
         <div>
             <h2>Home</h2>
         </div>
     )
 }
-const about = () => {
+const About = () => {
     return (
         <div>
             <h2>About</h2>
         </div>
     )
 }
-const logout = () => {
+
+const Logout = () => {
     return (
         <div>
             <h2>Logout</h2>
+            {facade.logout()}
+
         </div>
     )
 }
+
+
 
 export default App
