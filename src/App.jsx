@@ -8,9 +8,9 @@ import {NavLink} from "react-router-dom";
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
     const [user, setUser] = useState({username: "", roles: ""});
-    const test = () => {
+    // const test = () => {
 
-    }
+    // }
 
     const logout = () => {
         facade.logout();
