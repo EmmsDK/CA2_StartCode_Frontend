@@ -1,1 +1,4 @@
 /node_modules/
+/node_modules/webpack-dev-server/client
+/node_modules/webpack-dev-server/client/index.js
+
