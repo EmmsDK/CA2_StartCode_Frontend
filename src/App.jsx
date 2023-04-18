@@ -8,9 +8,6 @@ import {NavLink} from "react-router-dom";
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
     const [user, setUser] = useState({username: "", roles: ""});
-    // const test = () => {
-
-    // }
 
     const logout = () => {
         facade.logout();
@@ -30,6 +27,7 @@ function App() {
             <ul className="header">
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
+                <li><NavLink to="/logout">Logout</NavLink></li>
             </ul>
             <br/>
             {!loggedIn ? (<LogIn login={login}/>) :
@@ -37,6 +35,28 @@ function App() {
                     <LoggedIn user={user}/>
                     <button onClick={logout}>Logout</button>
                 </div>)}
+        </div>
+    )
+}
+
+const home = () => {
+    return (
+        <div>
+            <h2>Home</h2>
+        </div>
+    )
+}
+const about = () => {
+    return (
+        <div>
+            <h2>About</h2>
+        </div>
+    )
+}
+const logout = () => {
+    return (
+        <div>
+            <h2>Logout</h2>
         </div>
     )
 }
