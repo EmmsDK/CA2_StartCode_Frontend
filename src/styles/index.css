@@ -1,7 +1,49 @@
-#root {
 
-  padding: 0;
+/* For the router */
+ul.header {
+  list-style-type: none;
   margin: 0;
-  box-sizing:border-box;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+}
 
+ul.header li { float: left;}
+
+ul.header li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+ul.header li a:hover:not(.active) { background-color: #111;}
+.active { background-color: #62e4f8;}
+.loggedin {
+  color: whitesmoke;
+  padding: 3px;
+  text-align: center;
+  display: block;
+  padding: 14px 16px;
+  float: right;
+}
+.form input {
+  width: 200px;
+  padding: 12px 20px;
+  margin: 2px 2px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* box-sizing: border-box; */
+}
+.form button {
+  width: 200px;
+  background-color: #ccc;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
