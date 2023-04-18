@@ -4,7 +4,6 @@ import LogIn from "./components/LoginForm";
 import LoggedIn from "./components/LoggedIn";
 import {NavLink, Route, Routes} from "react-router-dom";
 
-
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
     const [user, setUser] = useState({username: "", roles: ""});
@@ -45,9 +44,7 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home/>}></Route>
                 <Route path="/about" element={<About/>}></Route>
-                <Route path="/logout" element={<Logout/>}>
-
-                </Route>
+                <Route path="/logout" element={<Logout/>}></Route>
             </Routes>
         </div>
     )
@@ -72,12 +69,9 @@ const Logout = () => {
     return (
         <div>
             <h2>Logout</h2>
-            {facade.logout()}
 
         </div>
     )
 }
-
-
 
 export default App
