@@ -83,12 +83,11 @@ function App() {
                 <div className="row">
                     <div className="col-md-8 offset-md-2">
                         <h2>Home</h2>
+                        <h3></h3>
                         {!loggedIn ? (
                             <LogIn login={login}/>
                         ) : (
                             <div>
-                                <LoggedIn user={user} logout={logout} loggedIn={loggedIn}/>
-
                                 <div className="joke-container">
                                     <h3>Here is the joke of the day:</h3>
                                     <p>{joke}</p>
@@ -97,6 +96,7 @@ function App() {
                                     <h3>Here is the fact of the day:</h3>
                                     <p>{fact}</p>
                                 </div>
+                                <LoggedIn user={user} logout={logout} loggedIn={loggedIn}/>
                             </div>
                         )}
                     </div>

@@ -11,9 +11,9 @@ function LoggedIn({user}){
 
     return (
       <div>
-        <h2>Data Received from server</h2>
-        <h3>{dataFromServer}</h3>
-        <h4>{user.username} with roles: {user.roles}</h4>
+        <h3>Data Received from server</h3>
+        <h4>{dataFromServer}</h4>
+        <h5>{user.username} with roles: {user.roles}</h5>
       </div>
     )
   }
