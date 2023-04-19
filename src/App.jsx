@@ -16,6 +16,7 @@ function App() {
         setUser({name: "", roles: ""})
         window.location.replace('/');
     }
+
     const login = (user, pass) => {
         facade.login(user, pass).then(() => {
             const token = facade.readJwtToken(facade.getToken());
@@ -46,7 +47,6 @@ function App() {
             });
     }, []);
 
-
     const Header = () => {
         return (
             <div>
@@ -61,6 +61,7 @@ function App() {
             </div>
         )
     }
+
     const Home = () => {
         const [joke, setJoke] = useState("");
         const [fact, setFact] = useState("");
@@ -103,6 +104,7 @@ function App() {
             </div>
         )
     }
+
     const Logout = () => {
         return (
             <div>
@@ -126,6 +128,5 @@ function App() {
         </div>
     )
 }
-
 
 export default App
