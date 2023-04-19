@@ -3,6 +3,8 @@ import facade from "./apiFacade";
 import LogIn from "./components/LoginForm";
 import LoggedIn from "./components/LoggedIn";
 import {NavLink, Route, Routes} from "react-router-dom";
+import axios from "axios";
+import {DTOUrl} from "./Setting.js";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -22,26 +24,27 @@ function App() {
         });
     }
 
+    const [jokes, setJokes] = useState([]);
     useEffect(() => {
-        const fetchJoke = async () => {
-            try {
-                const response = await fetch("/api/joke");
-                if (!response.ok) {
-                    throw new Error("Failed to fetch joke");
-                }
-                const data = await response.json();
-                setJoke(data.joke);
-                setError(null);
-            } catch (error) {
-                setError("Failed to fetch joke");
-                setJoke(null);
-            }
-        };
+        axios.get(DTOUrl)
+            .then((response) => {
+                setJokes(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, []);
 
-        if (loggedIn) {
-            fetchJoke();
-        }
-    }, [loggedIn]);
+    const [facts, setFacts] = useState([]);
+    useEffect(() => {
+        axios.get(DTOUrl)
+            .then((response) => {
+                setFacts(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, []);
 
 
     const Header = () => {
@@ -49,8 +52,9 @@ function App() {
             <div>
                 <ul className="header">
                     <li><NavLink to="/">Home</NavLink></li>
-
-                    <li><NavLink to="/logout">Logout</NavLink></li>
+                    {loggedIn ? (
+                        <li><NavLink to="/logout">Logout</NavLink></li>
+                    ) : null}
                 </ul>
                 <br/>
 
@@ -59,10 +63,17 @@ function App() {
     }
     const Home = () => {
         const [joke, setJoke] = useState("");
+        const [fact, setFact] = useState("");
 
         useEffect(() => {
             facade.fetchJokes().then((jokes) => {
                 setJoke(jokes[0].joke);
+            });
+        }, []);
+
+        useEffect(() => {
+            facade.fetchFacts().then((facts) => {
+                setFact(facts[0].fact);
             });
         }, []);
 
@@ -80,6 +91,10 @@ function App() {
                                 <div className="joke-container">
                                     <h3>Here is the joke of the day:</h3>
                                     <p>{joke}</p>
+                                </div>
+                                <div className="fact-container">
+                                    <h3>Here is the fact of the day:</h3>
+                                    <p>{fact}</p>
                                 </div>
                             </div>
                         )}

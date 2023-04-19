@@ -1,4 +1,4 @@
-const URL = "http://localhost:8080/ca2";
+import {URL} from "./Setting.js";
 
 function handleHttpErrors(res) {
     if (!res.ok) {
@@ -28,6 +28,11 @@ function apiFacade() {
     const fetchJokes = () => {
         const options = makeOptions("GET", true); //True add's the token
         return fetch(URL + "/api/jokes", options).then(handleHttpErrors);
+    }
+
+    const fetchFacts = () => {
+        const options = makeOptions("GET", true); //True add's the token
+        return fetch(URL + "/api/facts", options).then(handleHttpErrors);
     }
 
     const makeOptions = (method, addToken, body) => {
@@ -83,6 +88,7 @@ function apiFacade() {
         logout,
         fetchData,
         fetchJokes,
+        fetchFacts,
         readJwtToken,
 
     }
