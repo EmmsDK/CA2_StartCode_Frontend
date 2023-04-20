@@ -6,6 +6,7 @@ import {NavLink, Route, Routes} from "react-router-dom";
 import axios from "axios";
 import {DTOUrl} from "./Setting.js";
 import {EnableBlurToggle} from "./components/EnableBlurToggle.jsx";
+import Joke from "./components/Joke.jsx";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -25,28 +26,32 @@ function App() {
             setLoggedIn(true);
         });
     }
+/*
+        const [jokes, setJokes] = useState([]);
+        useEffect(() => {
+            axios.get(DTOUrl)
+                .then((response) => {
+                    setJokes(response.data);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }, []);
 
-    const [jokes, setJokes] = useState([]);
-    useEffect(() => {
-        axios.get(DTOUrl)
-            .then((response) => {
-                setJokes(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, []);
+        const [facts, setFacts] = useState([]);
+        useEffect(() => {
+            axios.get(DTOUrl)
+                .then((response) => {
+                    setFacts(response.data);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }, []);
+        
+ */
 
-    const [facts, setFacts] = useState([]);
-    useEffect(() => {
-        axios.get(DTOUrl)
-            .then((response) => {
-                setFacts(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, []);
+
 
     const Header = () => {
         return (
@@ -72,7 +77,7 @@ function App() {
         const [joke, setJoke] = useState("");
         const [fact, setFact] = useState("");
 
-
+/*
         const handleBlurToggle = () => {
             const jokeContainer = document.querySelector(".joke-container");
             const factContainer = document.querySelector(".fact-container");
@@ -89,19 +94,7 @@ function App() {
             handleBlurToggle();
         }, []);
 
-
-        useEffect(() => {
-            facade.fetchJokes().then((jokes) => {
-                setJoke(jokes[0].joke);
-            });
-        }, []);
-
-        useEffect(() => {
-            facade.fetchFacts().then((facts) => {
-                setFact(facts[0].fact);
-            });
-        }, []);
-
+ */
 
         return (
             <div className="container">
@@ -109,6 +102,9 @@ function App() {
                     <div className="col-md-8 offset-md-2">
                         <h2>Home</h2>
                         <h3></h3>
+                        <div>
+                            <Joke/>
+                        </div>
                         {!loggedIn ? (
                             <LogIn login={login}/>
                         ) : (

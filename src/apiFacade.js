@@ -25,15 +25,6 @@ function apiFacade() {
         return fetch(URL + ressource, options).then(handleHttpErrors);
     }
 
-    const fetchJokes = () => {
-        const options = makeOptions("GET", true); //True add's the token
-        return fetch(URL + "/api/jokes", options).then(handleHttpErrors);
-    }
-
-    const fetchFacts = () => {
-        const options = makeOptions("GET", true); //True add's the token
-        return fetch(URL + "/api/facts", options).then(handleHttpErrors);
-    }
 
     const makeOptions = (method, addToken, body) => {
         var opts = {
@@ -87,8 +78,6 @@ function apiFacade() {
         login,
         logout,
         fetchData,
-        fetchJokes,
-        fetchFacts,
         readJwtToken,
 
     }

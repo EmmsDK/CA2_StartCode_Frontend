@@ -10,4 +10,5 @@ export function EnableBlurToggle() {
     });
 }
 
+
 export default EnableBlurToggle;
