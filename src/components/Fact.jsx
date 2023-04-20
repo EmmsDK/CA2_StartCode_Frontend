@@ -1,28 +1,28 @@
 import React from "react";
 import {useState, useEffect} from "react";
 
-const Joke = () => {
-    const [joke, setJoke] = useState("");
+const Fact = () => {
+    const [fact, setFact] = useState("");
 
-    const fetchJoke = async (e) => {
+    const fetchFact = async (e) => {
         e.preventDefault();
         const response = await fetch("http://localhost:8080/ca2/api/apicall");
         const data = await response.json();
-        setJoke(data.joke);
+        setFact(data.fact);
         console.log(response)
     }
 
 
     return (
         <div>
-            <form onSubmit={fetchJoke}>
-                <button type="submit">Get Joke</button>
+            <form onSubmit={fetchFact}>
+                <button type="submit">Get Fact</button>
             </form>
-            <div className="joke-container">
-                <p>{joke}</p>
+            <div className="Jact-container">
+                <p>{fact}</p>
             </div>
         </div>
     );
 }
 
-export default Joke;
+export default Fact;

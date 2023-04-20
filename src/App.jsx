@@ -7,6 +7,7 @@ import axios from "axios";
 import {DTOUrl} from "./Setting.js";
 import {EnableBlurToggle} from "./components/EnableBlurToggle.jsx";
 import Joke from "./components/Joke.jsx";
+import Fact from "./components/Fact.jsx";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -77,7 +78,7 @@ function App() {
         const [joke, setJoke] = useState("");
         const [fact, setFact] = useState("");
 
-/*
+
         const handleBlurToggle = () => {
             const jokeContainer = document.querySelector(".joke-container");
             const factContainer = document.querySelector(".fact-container");
@@ -94,28 +95,24 @@ function App() {
             handleBlurToggle();
         }, []);
 
- */
+
 
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 offset-md-2">
                         <h2>Home</h2>
-                        <h3></h3>
-                        <div>
-                            <Joke/>
-                        </div>
                         {!loggedIn ? (
                             <LogIn login={login}/>
                         ) : (
                             <div>
                                 <h3>Here is the joke of the day:</h3>
                                 <div className="joke-container blur">
-                                    <p>{joke}</p>
+                                    <Joke/>
                                 </div>
                                 <h3>Here is the fact of the day:</h3>
                                 <div className="fact-container blur">
-                                    <p>{fact}</p>
+                                    <Fact/>
                                 </div>
                                 <LoggedIn user={user} logout={logout} loggedIn={loggedIn}/>
                             </div>
