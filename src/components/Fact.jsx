@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-const Joke = () => {
-    const [joke, setJoke] = useState("");
+const Fact = () => {
+    const [fact, setFact] = useState("");
 
     useEffect(() => {
-        const fetchJoke = async () => {
+        const fetchFact = async () => {
             const response = await fetch("http://localhost:8080/ca2/api/apicall");
             const data = await response.json();
-            setJoke(data.joke);
+            setFact(data.fact);
             console.log(response);
         };
-        fetchJoke();
+        fetchFact();
 
-        const blurElement = document.getElementById("blurEffectJoke");
+        const blurElement = document.getElementById("blurEffectFact");
         if (blurElement) {
             blurElement.addEventListener("click", function () {
                 blurElement.classList.remove("blur");
@@ -22,11 +22,11 @@ const Joke = () => {
 
     return (
         <div>
-            <div id="blurEffectJoke" className="joke-container blur">
-                <p>{joke}</p>
+            <div id="blurEffectFact" className="fact-container blur">
+                <p>{fact}</p>
             </div>
         </div>
     );
 };
 
-export default Joke;
+export default Fact;
