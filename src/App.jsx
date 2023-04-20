@@ -5,6 +5,7 @@ import LoggedIn from "./components/LoggedIn";
 import {NavLink, Route, Routes} from "react-router-dom";
 import axios from "axios";
 import {DTOUrl} from "./Setting.js";
+import {EnableBlurToggle} from "./components/EnableBlurToggle.jsx";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -57,14 +58,37 @@ function App() {
                     ) : null}
                 </ul>
                 <br/>
-
             </div>
         )
+
     }
+    document.querySelectorAll('.blur').forEach(element => {
+        element.addEventListener('click', () => {
+            element.classList.remove('blur');
+        });
+    });
 
     const Home = () => {
         const [joke, setJoke] = useState("");
         const [fact, setFact] = useState("");
+
+
+        const handleBlurToggle = () => {
+            const jokeContainer = document.querySelector(".joke-container");
+            const factContainer = document.querySelector(".fact-container");
+
+            jokeContainer?.addEventListener("click", () => {
+                jokeContainer.classList.remove("blur");
+            });
+            factContainer?.addEventListener("click", () => {
+                factContainer.classList.remove("blur");
+            });
+        };
+
+        useEffect(() => {
+            handleBlurToggle();
+        }, []);
+
 
         useEffect(() => {
             facade.fetchJokes().then((jokes) => {
@@ -78,6 +102,7 @@ function App() {
             });
         }, []);
 
+
         return (
             <div className="container">
                 <div className="row">
@@ -88,12 +113,12 @@ function App() {
                             <LogIn login={login}/>
                         ) : (
                             <div>
-                                <div className="joke-container">
-                                    <h3>Here is the joke of the day:</h3>
+                                <h3>Here is the joke of the day:</h3>
+                                <div className="joke-container blur">
                                     <p>{joke}</p>
                                 </div>
-                                <div className="fact-container">
-                                    <h3>Here is the fact of the day:</h3>
+                                <h3>Here is the fact of the day:</h3>
+                                <div className="fact-container blur">
                                     <p>{fact}</p>
                                 </div>
                                 <LoggedIn user={user} logout={logout} loggedIn={loggedIn}/>

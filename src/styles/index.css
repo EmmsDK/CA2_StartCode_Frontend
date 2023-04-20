@@ -88,6 +88,12 @@ body {
     background-color: #111;
 }
 
+.blur {
+    filter: blur(10px);
+    transition: filter 0.5s ease-out;
+    cursor: pointer;
+}
+
 .joke-container {
     margin-top: 20px;
     padding: 20px;
