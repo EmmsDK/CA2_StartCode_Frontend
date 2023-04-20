@@ -1,17 +1,17 @@
 import React from "react";
 import {useState, useEffect} from "react";
+import {DTOUrl} from "../Setting.js";
 
 const Joke = () => {
     const [joke, setJoke] = useState("");
 
     const fetchJoke = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:8080/ca2/api/apicall");
+        const response = await fetch(DTOUrl);
         const data = await response.json();
         setJoke(data.joke);
         console.log(response)
     }
-
 
     return (
         <div>

@@ -18,7 +18,7 @@ const Fact = () => {
             <form onSubmit={fetchFact}>
                 <button type="submit">Get Fact</button>
             </form>
-            <div className="Fact-container">
+            <div className="fact-container">
                 <p>{fact}</p>
             </div>
         </div>

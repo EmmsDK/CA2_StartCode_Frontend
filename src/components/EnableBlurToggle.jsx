@@ -1,4 +1,4 @@
-export function EnableBlurToggle() {
+const EnableBlurToggle = () => {
     document.addEventListener('DOMContentLoaded', () => {
         const blurElements = document.querySelectorAll('.blur');
 

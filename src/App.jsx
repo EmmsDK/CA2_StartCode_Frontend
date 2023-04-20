@@ -5,7 +5,7 @@ import LoggedIn from "./components/LoggedIn";
 import {NavLink, Route, Routes} from "react-router-dom";
 import axios from "axios";
 import {DTOUrl} from "./Setting.js";
-import {EnableBlurToggle} from "./components/EnableBlurToggle.jsx";
+import EnableBlurToggle from "./components/EnableBlurToggle.jsx";
 import Joke from "./components/Joke.jsx";
 import Fact from "./components/Fact.jsx";
 
@@ -27,32 +27,6 @@ function App() {
             setLoggedIn(true);
         });
     }
-/*
-        const [jokes, setJokes] = useState([]);
-        useEffect(() => {
-            axios.get(DTOUrl)
-                .then((response) => {
-                    setJokes(response.data);
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        }, []);
-
-        const [facts, setFacts] = useState([]);
-        useEffect(() => {
-            axios.get(DTOUrl)
-                .then((response) => {
-                    setFacts(response.data);
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        }, []);
-        
- */
-
-
 
     const Header = () => {
         return (
@@ -78,7 +52,6 @@ function App() {
         const [joke, setJoke] = useState("");
         const [fact, setFact] = useState("");
 
-
         const handleBlurToggle = () => {
             const jokeContainer = document.querySelector(".joke-container");
             const factContainer = document.querySelector(".fact-container");
@@ -94,8 +67,6 @@ function App() {
         useEffect(() => {
             handleBlurToggle();
         }, []);
-
-
 
         return (
             <div className="container">
