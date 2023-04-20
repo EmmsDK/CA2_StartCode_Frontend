@@ -18,7 +18,7 @@ const Fact = () => {
             <form onSubmit={fetchFact}>
                 <button type="submit">Get Fact</button>
             </form>
-            <div className="Jact-container">
+            <div className="Fact-container">
                 <p>{fact}</p>
             </div>
         </div>
