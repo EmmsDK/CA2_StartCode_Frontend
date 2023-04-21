@@ -73,11 +73,11 @@ function App() {
                         ) : (
                             <div>
                                 <h3>Here is the joke of the day:</h3>
-                                <div className="joke-container blur">
+                                <div className="joke-container">
                                     <Joke/>
                                 </div>
                                 <h3>Here is the fact of the day:</h3>
-                                <div className="fact-container blur">
+                                <div className="fact-container">
                                     <Fact/>
                                 </div>
                                 <LoggedIn user={user} logout={logout} loggedIn={loggedIn}/>
