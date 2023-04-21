@@ -40,8 +40,8 @@ function App() {
                 <br/>
             </div>
         )
-
     }
+
     document.querySelectorAll('.blur').forEach(element => {
         element.addEventListener('click', () => {
             element.classList.remove('blur');
@@ -102,7 +102,6 @@ function App() {
                     <LoggedIn LoggedIn user={user} logout={logout} loggedIn={loggedIn}/>
                     <button onClick={logout}>Logout</button>
                 </div>
-
             </div>
         )
     }

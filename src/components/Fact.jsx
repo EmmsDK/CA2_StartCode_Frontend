@@ -12,7 +12,6 @@ const Fact = () => {
         console.log(response)
     }
 
-
     return (
         <div>
             <form onSubmit={fetchFact}>
