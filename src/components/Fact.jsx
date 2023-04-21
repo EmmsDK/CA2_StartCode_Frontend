@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import {DTOUrl} from "../Setting.js";
 
 const Fact = () => {
     const [fact, setFact] = useState("");
 
     useEffect(() => {
         const fetchFact = async () => {
-            const response = await fetch("http://localhost:8080/ca2/api/apicall");
+            const response = await fetch(DTOUrl);
             const data = await response.json();
             setFact(data.fact);
             console.log(response);
