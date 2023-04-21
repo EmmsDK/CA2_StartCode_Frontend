@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-function LogIn({ login, logout}) {
+function LogIn({ login}) {
     const init = { username: "", password: "" };
     const [loginCredentials, setLoginCredentials] = useState(init);
   

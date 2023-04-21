@@ -3,9 +3,6 @@ import facade from "./apiFacade";
 import LogIn from "./components/LoginForm";
 import LoggedIn from "./components/LoggedIn";
 import {NavLink, Route, Routes} from "react-router-dom";
-import axios from "axios";
-import {DTOUrl} from "./Setting.js";
-import EnableBlurToggle from "./components/EnableBlurToggle.jsx";
 import Joke from "./components/Joke.jsx";
 import Fact from "./components/Fact.jsx";
 
@@ -49,8 +46,6 @@ function App() {
     });
 
     const Home = () => {
-        const [joke, setJoke] = useState("");
-        const [fact, setFact] = useState("");
 
         const handleBlurToggle = () => {
             const jokeContainer = document.querySelector(".joke-container");
